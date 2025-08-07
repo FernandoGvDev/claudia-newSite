@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaWhatsapp, FaInstagram, FaBars } from "react-icons/fa";
-import PagSobre from '../components/pagSobre';
+import PagSobre from '../components/PagSobre';
 import { Link } from 'react-router-dom';
 
 import logo from "../assets/img/logo-trasparente.jpg";
