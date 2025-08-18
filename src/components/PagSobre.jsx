@@ -1,5 +1,5 @@
 import React from 'react';
-import perfilImg from './../assets/img/perfil01.png'; // ajuste o caminho se necessário
+import perfil from './../assets/img/perfil01.png'; // ajuste o caminho se necessário
 
 const PagSobre = () => {
     return (
@@ -10,7 +10,7 @@ const PagSobre = () => {
             >
                 <div className="flex-shrink-0 w-full lg:w-[380px]">
                     <img
-                        src={perfilImg}
+                        src={perfil}
                         alt="Claudia Steinntz"
                         className="w-full h-auto block rounded-[5%] border-[3px] border-[#c8a951] object-cover"
                     />
@@ -60,11 +60,6 @@ const PagSobre = () => {
                     </p>
                 </div>
             </section>
-
-            <blockquote className="text-[16px] text-[#333] bg-[#f5f5f5] p-5 border-l-4 border-[#c8a951] mt-8 italic">
-                “A Dra. Claudia me atendeu com empatia e profissionalismo. Me senti segura em cada etapa do processo.”
-                <span className="block mt-2 font-bold text-[#555]">– Cliente satisfeita</span>
-            </blockquote>
 
             <div className="text-center mt-14 px-5 py-10 bg-[#f8f8f8] border-t-2 border-[#c8a951] rounded-lg shadow-md">
                 <p className="text-[18px] text-[#333] mb-5 max-w-[600px] mx-auto leading-relaxed">
