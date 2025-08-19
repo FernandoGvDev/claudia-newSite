@@ -1,9 +1,11 @@
 // Sobre.jsx
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import perfil from './../assets/img/perfil-sobre.png'; 
+import perfil from './../assets/img/perfil-sobre.png';
+import { Link } from "react-router-dom";
 
 const textoDigitado = "Advogada\nOAB: 138.087/RS";
+const MotionLink = motion(Link);
 
 const Sobre = () => {
   const [texto, setTexto] = useState('');
@@ -102,14 +104,14 @@ const Sobre = () => {
             {texto}
             <span className="animate-pulse">|</span>
           </h4>
-          <motion.a
-            href="pages/sobre.html"
+          <MotionLink
+            to="/sobre"
             className="inline-block bg-yellow-500 text-white font-bold px-6 py-3 rounded-full shadow hover:bg-[#c49b2e] transition duration-300"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
             Saiba mais
-          </motion.a>
+          </MotionLink>
         </motion.div>
       </div>
     </section>
