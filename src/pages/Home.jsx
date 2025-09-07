@@ -67,39 +67,40 @@ function Home() {
 
       {/* Banner */}
       <main
-        className="relative flex items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-6 text-[#57201c] overflow-hidden"
-      >
-        {/* Fundo */}
-        <div
-          className="absolute inset-0 bg-cover bg-center brightness-[0.45] z-0"
-          style={{ backgroundImage: `url(${bannerImg})` }}
-        ></div>
+  className="relative flex items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-6 text-white overflow-hidden"
+>
+  {/* Fundo */}
+  <div
+    className="absolute inset-0 bg-cover bg-center brightness-[0.45] z-0"
+    style={{ backgroundImage: `url(${bannerImg})` }}
+  ></div>
 
-        {/* Caixa de texto centralizada */}
-        <section className="relative z-10 bg-white/85 backdrop-blur-sm max-w-xl text-center p-6 sm:p-10 rounded-xl shadow-lg mb-16 mt-16">
-          <h1 className="text-3xl sm:text-6xl font-semibold font-serif mb-4 sm:mb-6">
-            Fornecemos orientação jurídica com
-          </h1>
+  {/* Caixa de texto centralizada */}
+  <section className="relative z-10 text-center p-6 sm:p-10 mb-16 mt-16">
+    <h1 className="text-3xl sm:text-6xl font-semibold font-serif mb-4 sm:mb-6">
+      Fornecemos orientação jurídica com
+    </h1>
 
-          <h2 className="text-2xl sm:text-4xl font-bold font-serif mb-3 sm:mb-4">
-            <span className="text-[#57201c] font-semibold">
-              profissionalismo e total transparência!
-            </span>
-          </h2>
+    <h2 className="text-2xl sm:text-4xl font-bold font-serif mb-3 sm:mb-4">
+      <span className="text-[#f5d29b] font-semibold">
+        profissionalismo e total transparência!
+      </span>
+    </h2>
 
-          <h3 className="text-lg sm:text-2xl font-serif mb-6 sm:mb-8">
-            Auxiliamos você em demandas:<br />
-            <TypingEffect words={['trabalhistas', 'familiares', 'cíveis', 'penais']} />
-          </h3>
+    <h3 className="text-lg sm:text-2xl font-serif mb-6 sm:mb-8">
+      Auxiliamos você em demandas:<br />
+      <TypingEffect words={['trabalhistas', 'familiares', 'cíveis', 'penais']} />
+    </h3>
 
-          <a
-            href="#formulario"
-            className="inline-block bg-[#57201c] text-white font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-full hover:bg-[#694a1b] hover:scale-105 transition duration-200"
-          >
-            AGENDAR UMA CONSULTA
-          </a>
-        </section>
-      </main>
+    <a
+      href="#formulario"
+      className="inline-block bg-[#c8a951] text-[#57201c] font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-full hover:bg-[#b89738] hover:scale-105 transition duration-200"
+    >
+      AGENDAR UMA CONSULTA
+    </a>
+  </section>
+</main>
+
 
       {/* Serviços */}
       <div className="mb-10 px-4 sm:px-0">
