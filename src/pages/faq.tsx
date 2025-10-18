@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
+
 
 interface Pergunta {
   pergunta: string;

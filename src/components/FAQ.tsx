@@ -1,10 +1,26 @@
 import { useState, useRef, useEffect } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 interface Pergunta {
   pergunta: string;
   resposta: string;
 }
+
+const SEO = ({ title, description }: { title: string; description?: string }) => {
+  useEffect(() => {
+    document.title = title;
+    if (description) {
+      let meta = document.querySelector('meta[name="description"]');
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute("name", "description");
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute("content", description);
+    }
+  }, [title, description]);
+
+  return null;
+};
 
 const FAQ = () => {
   const perguntas: Pergunta[] = [
@@ -73,46 +89,31 @@ const FAQ = () => {
     });
   }, [aberta]);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: perguntas.map((item) => ({
+      "@type": "Question",
+      name: item.pergunta,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.resposta,
+      },
+    })),
+  };
+
   return (
-    <HelmetProvider>
-      <Helmet>
-        {/* SEO Meta Tags */}
-        <title>Perguntas Frequentes | Steinntz Advogados</title>
-        <meta
-          name="description"
-          content="Tire suas dúvidas sobre atendimento jurídico, pensão, divórcio, inventário e muito mais com o escritório Steinntz Advogados — atendimento em todo o Rio Grande do Sul."
-        />
-        <meta
-          name="keywords"
-          content="advogado, direito civil, direito de família, pensão alimentícia, divórcio, inventário, Steinntz Advogados, consultoria jurídica RS"
-        />
-        <meta name="author" content="Steinntz Advogados" />
-        <meta property="og:title" content="FAQ | Steinntz Advogados" />
-        <meta
-          property="og:description"
-          content="Conheça as principais dúvidas jurídicas e veja como o escritório Steinntz pode ajudar você em causas de família, trabalho, cível e previdenciário."
-        />
-        <meta property="og:url" content="https://steinntz.adv.br/faq" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://steinntz.adv.br/faq" />
-        <meta property="og:image" content="https://steinntz.adv.br/public/logo-trasparente.jpg" />
-        <meta property="og:locale" content="pt_BR" />
-        <meta property="og:site_name" content="Steinntz Advogados" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: perguntas.map((item) => ({
-              "@type": "Question",
-              name: item.pergunta,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.resposta,
-              },
-            })),
-          })}
-        </script>
-      </Helmet>
+    <>
+      <SEO
+        title="Perguntas Frequentes | Steinntz Advogados"
+        description="Tire suas dúvidas sobre atendimento jurídico, pensão, divórcio, inventário e muito mais com o escritório Steinntz Advogados — atendimento em todo o Rio Grande do Sul."
+      />
+
+      {/* FAQ Schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       <section className="max-w-3xl mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold text-[#57201c] mb-8 text-center">
@@ -140,7 +141,8 @@ const FAQ = () => {
 
             <div
               ref={(el) => {
-                contentRefs.current[index] = el}}
+                contentRefs.current[index] = el;
+              }}
               className="px-4 overflow-hidden transition-all duration-500 text-gray-700"
               style={{
                 maxHeight: aberta === index ? "auto" : "0px",
@@ -151,7 +153,7 @@ const FAQ = () => {
           </div>
         ))}
       </section>
-    </HelmetProvider>
+    </>
   );
 };
 
