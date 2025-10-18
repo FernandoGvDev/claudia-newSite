@@ -63,7 +63,7 @@ function Home() {
             Contato
           </a>
         </nav>
-      </header>
+      </header>                                             
 
       {/* Banner */}
       <main
