@@ -109,29 +109,31 @@ const FAQ = () => {
         description="Tire suas dúvidas sobre atendimento jurídico, pensão, divórcio, inventário e muito mais com o escritório Steinntz Advogados — atendimento em todo o Rio Grande do Sul."
       />
 
-      {/* FAQ Schema JSON-LD */}
+      {/* FAQ Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="max-w-3xl mx-auto py-12 px-4">
-        <h2 className="text-3xl font-bold text-[#57201c] mb-8 text-center">
+      <section className="max-w-3xl mx-auto py-16 px-4 bg-[#f8f5f2] rounded-2xl shadow-sm border border-[#e8dbc5]">
+        <h2 className="text-3xl font-bold text-[#57201c] mb-10 text-center tracking-wide">
           Perguntas Frequentes
         </h2>
 
         {perguntas.map((item, index) => (
           <div
             key={index}
-            className="mb-4 border border-gray-300 rounded overflow-hidden transition-all duration-500"
+            className="mb-4 rounded-xl border border-[#e2d4bc] bg-white shadow-sm overflow-hidden transition-all duration-500"
           >
+            {/* BOTÃO DO ITEM */}
             <button
               onClick={() => toggle(index)}
-              className="w-full p-4 font-medium bg-white hover:bg-gray-100 transition-colors flex items-center justify-between text-left"
+              className="w-full p-5 font-medium bg-white hover:bg-[#f4ede4] transition-colors flex items-center justify-between text-left text-[#4a3f3b] text-lg"
             >
               {item.pergunta}
+
               <span
-                className={`transform transition-transform duration-300 ${
+                className={`text-[#c8a951] text-xl transform transition-transform duration-300 ${
                   aberta === index ? "rotate-180" : ""
                 }`}
               >
@@ -139,16 +141,22 @@ const FAQ = () => {
               </span>
             </button>
 
+            {/* ÁREA DE RESPOSTA */}
             <div
               ref={(el) => {
                 contentRefs.current[index] = el;
               }}
-              className="px-4 overflow-hidden transition-all duration-500 text-gray-700"
-              style={{
-                maxHeight: aberta === index ? "auto" : "0px",
-              }}
+              className="px-5 overflow-hidden transition-all duration-500"
+              style={{ maxHeight: "0px" }}
             >
-              <div className="py-2">{item.resposta}</div>
+              <div className="py-4 flex gap-4">
+                {/* Faixa dourada */}
+                <div className="w-1 bg-[#c8a951] rounded"></div>
+
+                <p className="text-[#4a3f3b] leading-relaxed">
+                  {item.resposta}
+                </p>
+              </div>
             </div>
           </div>
         ))}
